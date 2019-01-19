@@ -36,18 +36,15 @@
             android:gravity="center_vertical"
             android:textSize="14sp" />
 
-        <Button
-            android:id="@+id/reservation_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/teacher"
-            android:layout_alignParentRight="true"
-            android:background="@color/colorPrimary"
+        <TextView
+            android:id="@+id/date_reservation"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="5dp"
             android:gravity="center_vertical"
-            android:text="Prenota"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-           />
+            android:textSize="14sp"
+            android:layout_below="@id/date"/>
+
     </RelativeLayout>
 
 

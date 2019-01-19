@@ -9,14 +9,21 @@ public class Reservation {
     public String courseName;
     public String teacherName;
     public String courseTeacherDate;
+    public String date;
 
-    public Reservation(int id, int userId, int courseTeacherId, String courseName, String teacherName, String courseTeacherDate) {
+    public Reservation(int id, int userId, int courseTeacherId, String courseName, String teacherName, String courseTeacherDate, String date) {
         this.id = id;
         this.userId = userId;
         this.courseTeacherId = courseTeacherId;
         this.courseName = courseName;
         this.teacherName = teacherName;
         this.courseTeacherDate = courseTeacherDate;
+        this.date = date;
+    }
+
+    public Reservation(int userId, int courseTeacherId) {
+        this.userId = userId;
+        this.courseTeacherId = courseTeacherId;
     }
 
     public int getId() {
@@ -65,6 +72,14 @@ public class Reservation {
 
     public void setCourseTeacherDate(String courseTeacherDate) {
         this.courseTeacherDate = courseTeacherDate;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
 
