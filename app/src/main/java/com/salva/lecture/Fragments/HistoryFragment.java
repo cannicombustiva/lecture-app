@@ -17,6 +17,7 @@ import com.salva.lecture.R;
 import com.salva.lecture.api.RestClient;
 import com.salva.lecture.api.models.Reservation;
 import com.salva.lecture.api.models.ReservationEndPointResponse;
+import com.salva.lecture.helpers.HistoryAdapter;
 import com.salva.lecture.helpers.ReservationAdapter;
 import com.salva.lecture.helpers.SharedData;
 import java.util.List;
@@ -49,13 +50,13 @@ public class HistoryFragment extends Fragment {
             @Override
             public void onResponse(Call<ReservationEndPointResponse> call, Response<ReservationEndPointResponse> response) {
                 if(response.errorBody() != null) {
-
+                    return;
                 }
                 List<Reservation> reservations = response.body().getList();
 
                 RecyclerView recyclerView = view.findViewById(R.id.cardListHistory);
                 recyclerView.setHasFixedSize(true);
-                ReservationAdapter reservationAdapter = new ReservationAdapter(reservations);
+                HistoryAdapter reservationAdapter = new HistoryAdapter(reservations);
                 recyclerView.setAdapter(reservationAdapter);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 LinearLayoutManager llm = new LinearLayoutManager(getActivity());

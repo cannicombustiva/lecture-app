@@ -20,6 +20,10 @@ public class Reservation {
         this.courseTeacherDate = courseTeacherDate;
         this.date = date;
     }
+    public Reservation(int id) {
+
+        this.id = id;
+    }
 
     public Reservation(int userId, int courseTeacherId) {
         this.userId = userId;

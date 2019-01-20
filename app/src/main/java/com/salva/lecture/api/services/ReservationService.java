@@ -46,4 +46,11 @@ public interface ReservationService {
             @Header("authorization") String token,
             @Body Reservation reservation
     );
+
+    @Headers("AppLecture: true")
+    @POST("/LecturesRes/Api/Reservations/Delete")
+    Call<DumbEndPointResponse> delete(
+            @Header("authorization") String token,
+            @Body Reservation reservation
+    );
 }

@@ -6,22 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.salva.lecture.Interfaces.OnItemClickListener;
 import com.salva.lecture.Interfaces.OnReservationClickListener;
 import com.salva.lecture.R;
-import com.salva.lecture.api.models.CourseTeacher;
 import com.salva.lecture.api.models.Reservation;
 
 import java.util.List;
 
-public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.ReservedViewHolder>  {
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ReservedViewHolder>  {
 
     private List<Reservation> reservationList;
-    private OnReservationClickListener listener;
 
-    public ReservationAdapter(List<Reservation> reservationList, OnReservationClickListener listener) {
+    public HistoryAdapter(List<Reservation> reservationList) {
         this.reservationList = reservationList;
-        this.listener = listener;
     }
 
 
@@ -37,22 +33,14 @@ public class ReservationAdapter extends RecyclerView.Adapter<ReservationAdapter.
         reservedViewHolder.teacher.setText(ci.teacherName);
         reservedViewHolder.date.setText(String.format("Data di prenotazione:\n%s", ci.date));
         reservedViewHolder.dateReservation.setText(String.format("Data lezione:\n%s", ci.courseTeacherDate));
-        bind(reservedViewHolder.itemView.findViewById(R.id.delete_button), ci, listener);
     }
 
-    public void bind(View itemView ,final Reservation item, final OnReservationClickListener listener) {
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                listener.onItemClick(item, v);
-            }
-        });
-    }
 
     @Override
     public ReservedViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.card_row_reservation, viewGroup, false);
+                inflate(R.layout.card_row_history, viewGroup, false);
 
         return new ReservedViewHolder(itemView);
     }
